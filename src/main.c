@@ -12,6 +12,10 @@ int main() {
     printf("\n");
     requeue(queue, pcb);
     printQueue(queue);
+    printf("\n");
+    requeue(queue, pcb2);
+    printQueue(queue);
     printQueueFirst(queue);
+
     return 0;
 }

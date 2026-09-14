@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "core.h"
-#include "module.h"
+#include "pcb.h"
+#include "queue.h"
 
 static void test_get_core_name(void) {
     Core core = { .id = 1, .name = "core-test" };
