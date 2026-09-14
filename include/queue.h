@@ -1,20 +1,24 @@
-#ifdef QUEUE_H
-#define QUEUE_H
+// Novidade de Sintaxe das versões mais novas do GCC, substituindo o tradicional #ifndef/#define/#endif para evitar múltiplas inclusões do mesmo arquivo de cabeçalho.
+#pragma once
 #include "pcb.h"
-
-// Fila Circular dinâmica para armazenar processos (PCBs)
 typedef struct {
+    
     PCB **Processes;
     unsigned int front;
     unsigned int rear;
     unsigned int capacity;
+    signed short quantum;
+
 } CircularQueue;
 
-typedef CircularQueue circularQueue;
+typedef CircularQueue LinkedQueue;
 
-circularQueue* create_queue(unsigned int capacity);
+LinkedQueue* create_queue(unsigned int capacity);
 
-void enqueue(circularQueue* queue, PCB* pcb);
+void enqueue(LinkedQueue* queue, PCB* pcb);
 
-PCB* dequeue(circularQueue* queue);
-#endif // QUEUE_H
+void requeue(LinkedQueue* queue, PCB* pcb);
+
+void printQueue(LinkedQueue* queue);
+
+PCB* dequeue(LinkedQueue* queue);
