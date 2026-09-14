@@ -36,6 +36,7 @@ void enqueue(LinkedQueue* queue, PCB* pcb) {
     queue->rear = (queue->rear + 1) % queue->capacity;
 }
 
+// Requeue function to add a PCB back to the queue (useful for round-robin scheduling)
 void requeue(LinkedQueue* queue, PCB* pcb) {
     if (queue == NULL || pcb == NULL) {
         fprintf(stderr, "Queue or PCB is NULL\n");
@@ -48,7 +49,6 @@ void requeue(LinkedQueue* queue, PCB* pcb) {
     queue->Processes[queue->rear] = pcb;
     queue->rear = (queue->rear + 1) % queue->capacity;
 }
-
 PCB* dequeue(LinkedQueue* queue) {
     if (queue == NULL) {
         fprintf(stderr, "Queue is NULL\n");
@@ -77,4 +77,17 @@ void printQueue(LinkedQueue* queue){
         printf("\nPosition %u \n", i);
         print_pcb(queue->Processes[i]);
     }
+}
+
+void printQueueFirst(LinkedQueue* queue){
+    if (queue == NULL) {
+        fprintf(stderr, "Queue is NULL\n");
+        return;
+    }
+    if (queue->front == queue->rear) {
+        printf("Queue is empty\n");
+        return;
+    }
+    printf("First element in the queue:\n");
+    print_pcb(queue->Processes[queue->front]);
 }

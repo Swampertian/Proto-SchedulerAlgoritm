@@ -21,4 +21,6 @@ void requeue(LinkedQueue* queue, PCB* pcb);
 
 void printQueue(LinkedQueue* queue);
 
+void printQueueFirst(LinkedQueue* queue);
+
 PCB* dequeue(LinkedQueue* queue);

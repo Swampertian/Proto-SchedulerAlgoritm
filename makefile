@@ -11,8 +11,8 @@ BIN_DIR   = bin
 
 # Add every .c file here
 SRCS = $(SRC_DIR)/main.c \
-       $(SRC_DIR)/core/core.c \
-	   $(SRC_DIR)/modules/module.c
+	   $(SRC_DIR)/core/pcb.c \
+	   $(SRC_DIR)/core/queue.c
 
 # Maps .c files to .o files inside build/, keeping the same structure
 # Ex: src/main.c becomes build/src/main.o

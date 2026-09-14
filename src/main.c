@@ -8,8 +8,10 @@ int main() {
     PCB *pcb2 = create_pcb("Process2", 2, 2, 2, 2, 2);
     enqueue(queue, pcb);
     enqueue(queue, pcb2);
-    
-
     printQueue(queue);
+    printf("\n");
+    requeue(queue, pcb);
+    printQueue(queue);
+    printQueueFirst(queue);
     return 0;
 }
