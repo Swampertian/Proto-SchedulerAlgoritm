@@ -1,11 +1,15 @@
 #include <stdio.h>
-#include "core.h"
-#include "module.h"
-int main() {
-    Core core = {1, "Alice"};
+#include "pcb.h"
+#include "queue.h"
 
-    printf("This is a C Repository Template\n");
-    printf("Core name: %s\n", get_core_name(&core));
-    printf("Module name: %s\n", get_module_name(&core));
+int main() {
+    LinkedQueue *queue = create_queue(100);
+    PCB *pcb = create_pcb("Process1", 1, 1, 1, 1, 1);
+    PCB *pcb2 = create_pcb("Process2", 2, 2, 2, 2, 2);
+    enqueue(queue, pcb);
+    enqueue(queue, pcb2);
+    
+
+    printQueue(queue);
     return 0;
 }
