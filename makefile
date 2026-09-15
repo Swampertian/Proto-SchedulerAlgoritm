@@ -12,7 +12,8 @@ BIN_DIR   = bin
 # Add every .c file here
 SRCS = $(SRC_DIR)/main.c \
 	   $(SRC_DIR)/core/pcb.c \
-	   $(SRC_DIR)/core/queue.c
+	   $(SRC_DIR)/core/queue.c \
+	   $(SRC_DIR)/core/scheduler.c
 
 # Maps .c files to .o files inside build/, keeping the same structure
 # Ex: src/main.c becomes build/src/main.o
@@ -23,8 +24,9 @@ TARGET = $(BIN_DIR)/template
 
 # Sources and binary used by the test target (reuses core/module, swaps main.c for test.c)
 TEST_SRCS = tests/test.c \
-	    $(SRC_DIR)/core/core.c \
-	    $(SRC_DIR)/modules/module.c
+	    $(SRC_DIR)/core/pcb.c \
+	    $(SRC_DIR)/core/queue.c \
+	    $(SRC_DIR)/core/scheduler.c
 TEST_TARGET = $(BIN_DIR)/test
 
 # Default target: builds and runs the program
