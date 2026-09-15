@@ -14,6 +14,11 @@ PCB *create_pcb(const char* name, unsigned int pid, int priority, int DateHour, 
     pcb->dateHour = DateHour;
     pcb->startTime = StartTime;
     pcb->endTime = EndTime;
+    pcb->remainingTime = 0;
+    if (EndTime > StartTime) {
+        pcb->remainingTime = EndTime - StartTime;
+    }
+    pcb->isCompleted = pcb->remainingTime == 0;
     return pcb;
 }
 
@@ -32,6 +37,7 @@ void print_pcb(const PCB *pcb) {
         printf("Date and Hour: %d\n", pcb->dateHour);
         printf("Start Time: %d\n", pcb->startTime);
         printf("End Time: %d\n", pcb->endTime);
+        printf("Remaining Time: %d\n", pcb->remainingTime);
     }
 }
 
@@ -40,4 +46,3 @@ void set_pcb_priority(PCB *pcb, int priority) {
         pcb->priority = priority;
     }
 }
-
