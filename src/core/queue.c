@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "queue.h"
 
-#define QUANTUM 10000
+#define QUANTUM 5
 
 LinkedQueue* create_queue(const char* name, unsigned int capacity) {
     if (capacity == 0) {

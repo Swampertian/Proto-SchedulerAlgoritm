@@ -10,9 +10,10 @@ int execute_pcb(PCB *pcb, unsigned int quantum) {
     if (pcb->remainingTime < slice) {
         slice = pcb->remainingTime;
     }
-
     pcb->remainingTime -= slice;
     pcb->isCompleted = pcb->remainingTime == 0;
+    printf("\nProcesso executado:");
+    print_pcb(pcb);
     return slice;
 }
 
@@ -46,6 +47,7 @@ unsigned int scheduler_round_robin(LinkedQueue* multi_queues[], unsigned int num
             }
 
             PCB *running = dequeue(queue);
+            printf("\n Executando Processo: ");
             execute_pcb(running, (unsigned int)queue->quantum);
             slices++;
 
